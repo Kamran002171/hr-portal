@@ -9,6 +9,12 @@ function Employees() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
   const [showExcelImport, setShowExcelImport] = useState(false);
+  const [terminatedEmployees, setTerminatedEmployees] = useState(() => {
+  const saved = localStorage.getItem("terminatedEmployees");
+  return saved ? JSON.parse(saved) : [];
+});
+
+const [employeeToTerminate, setEmployeeToTerminate] = useState(null);
 
   const [employees, setEmployees] = useState(() => {
     const savedEmployees = localStorage.getItem("employees");
@@ -40,6 +46,12 @@ function Employees() {
   useEffect(() => {
     localStorage.setItem("employees", JSON.stringify(employees));
   }, [employees]);
+  useEffect(() => {
+  localStorage.setItem(
+    "terminatedEmployees",
+    JSON.stringify(terminatedEmployees)
+  );
+}, [terminatedEmployees]);
 
   const updateEmployee = (updatedEmployee) => {
     const updatedEmployees = employees.map((emp) =>
@@ -49,6 +61,38 @@ function Employees() {
     setEmployees(updatedEmployees);
     setSelectedEmployee(updatedEmployee);
   };
+  const terminateEmployee = (employee) => {
+
+  const today = new Date();
+
+  const xitamTarixi = 
+    `${String(today.getDate()).padStart(2, "0")}.${String(today.getMonth() + 1).padStart(2, "0")}.${today.getFullYear()}`;
+
+
+  // Aktiv siyahıdan çıxarır
+  setEmployees(
+    employees.filter(
+      (emp) => emp.id !== employee.id
+    )
+  );
+
+
+  // Xitam verilənlərə əlavə edir
+  setTerminatedEmployees([
+    ...terminatedEmployees,
+    {
+      ad: employee.ad,
+      soyad: employee.soyad,
+      vezife: employee.vezife,
+      sobe: employee.sobe,
+      xitamTarixi: xitamTarixi
+    }
+  ]);
+
+
+  // Profili bağlayır
+  setSelectedEmployee(null);
+};
 
   const addEmployee = (employee) => {
     const lastId =
@@ -154,10 +198,11 @@ function Employees() {
   if (selectedEmployee) {
     return (
       <EmployeeProfile
-        employee={selectedEmployee}
-        setSelectedEmployee={setSelectedEmployee}
-        updateEmployee={updateEmployee}
-      />
+  employee={selectedEmployee}
+  setSelectedEmployee={setSelectedEmployee}
+  updateEmployee={updateEmployee}
+  terminateEmployee={terminateEmployee}
+/>
     );
   }
 

@@ -1,7 +1,9 @@
-import { useState } from 'react';
-import './App.css';
-import Sidebar from './components/Sidebar';
-import Employees from './components/Employees';
+import { useState } from "react";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./components/Dashboard";
+import Employees from "./components/Employees";
+import TerminatedEmployees from "./components/TerminatedEmployees";
 
 function App() {
   const [page, setPage] = useState("dashboard");
@@ -12,34 +14,7 @@ function App() {
 
       <div className="content">
 
-        {page === "dashboard" && (
-          <>
-            <h1>Dashboard</h1>
-            <p>HR Portal idarəetmə paneli</p>
-
-            <div className="cards">
-              <div className="card">
-                <h3>👥 İşçilər</h3>
-                <p>120 nəfər</p>
-              </div>
-
-              <div className="card">
-                <h3>🏢 Şöbələr</h3>
-                <p>8 şöbə</p>
-              </div>
-
-              <div className="card">
-                <h3>📅 Məzuniyyətlər</h3>
-                <p>15 gözləyir</p>
-              </div>
-
-              <div className="card">
-                <h3>💰 Maaş xərci</h3>
-                <p>25 000 AZN</p>
-              </div>
-            </div>
-          </>
-        )}
+        {page === "dashboard" && <Dashboard />}
 
         {page === "employees" && (
           <Employees />
@@ -64,6 +39,10 @@ function App() {
             <h1>Əmək haqqı</h1>
             <p>Əmək haqqı bölməsi</p>
           </>
+        )}
+
+        {page === "terminatedEmployees" && (
+          <TerminatedEmployees />
         )}
 
         {page === "reports" && (
