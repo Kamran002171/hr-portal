@@ -1,0 +1,151 @@
+.departments {
+  padding: 30px;
+}
+
+.departments-header {
+  margin-bottom: 25px;
+}
+
+.departments-header h1 {
+  font-size: 28px;
+  color: #1f2937;
+}
+
+.department-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.department-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  border: 2px solid transparent;
+  box-shadow: 0 5px 15px rgba(0,0,0,.06);
+  cursor: pointer;
+  transition: .25s;
+}
+
+.department-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+
+.department-card.active {
+  border-color: #2563eb;
+}
+
+.department-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.department-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.department-top h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.manager-name {
+  margin: 5px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.department-divider {
+  height: 1px;
+  background: #ececec;
+  margin: 16px 0;
+}
+
+.department-bottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.employee-count {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-count strong {
+  font-size: 20px;
+  line-height: 22px;
+  color: #111827;
+}
+
+.employee-count span {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+
+/* İşçilər cədvəli */
+
+.department-table {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,.06);
+}
+
+.table-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid #ececec;
+}
+
+.table-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.department-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.department-table th {
+  background: #f8fafc;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 14px;
+  color: #374151;
+}
+
+.department-table td {
+  padding: 14px 18px;
+  border-top: 1px solid #f1f5f9;
+  color: #374151;
+}
+
+.department-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+
+@media (max-width: 768px) {
+
+  .departments {
+    padding: 20px;
+  }
+
+  .department-cards {
+    grid-template-columns: 1fr;
+  }
+
+}

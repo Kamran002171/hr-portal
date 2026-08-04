@@ -1,31 +1,39 @@
 import { useState } from "react";
 import "./App.css";
+
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/Dashboard";
 import Employees from "./components/Employees";
 import TerminatedEmployees from "./components/TerminatedEmployees";
+import Departments from "./pages/Departments/Departments";
 
 function App() {
+
   const [page, setPage] = useState("dashboard");
 
   return (
+
     <div className="app">
+
       <Sidebar setPage={setPage} />
 
       <div className="content">
 
-        {page === "dashboard" && <Dashboard />}
+
+        {page === "dashboard" && (
+          <Dashboard />
+        )}
+
 
         {page === "employees" && (
           <Employees />
         )}
 
+
         {page === "departments" && (
-          <>
-            <h1>Şöbələr</h1>
-            <p>Şöbələr bölməsi</p>
-          </>
+          <Departments />
         )}
+
 
         {page === "leaves" && (
           <>
@@ -34,6 +42,7 @@ function App() {
           </>
         )}
 
+
         {page === "salary" && (
           <>
             <h1>Əmək haqqı</h1>
@@ -41,9 +50,11 @@ function App() {
           </>
         )}
 
+
         {page === "terminatedEmployees" && (
           <TerminatedEmployees />
         )}
+
 
         {page === "reports" && (
           <>
@@ -51,6 +62,7 @@ function App() {
             <p>Hesabatlar bölməsi</p>
           </>
         )}
+
 
         {page === "settings" && (
           <>
@@ -60,8 +72,11 @@ function App() {
         )}
 
       </div>
+
     </div>
+
   );
+
 }
 
 export default App;
