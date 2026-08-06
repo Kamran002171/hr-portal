@@ -1,0 +1,161 @@
+.leave-page {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: #f8fafc;
+    min-height: 100%;
+}
+
+/* ==========================
+   Header
+========================== */
+
+.leave-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.leave-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.leave-title-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 10px 25px rgba(37,99,235,.25);
+}
+
+.leave-title h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.leave-title p {
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 15px;
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.leave-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.calculate-btn,
+.add-btn {
+    height: 46px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+.calculate-btn {
+    background: white;
+    color: #2563eb;
+    border: 1px solid #dbeafe;
+}
+
+.calculate-btn:hover {
+    background: #eff6ff;
+}
+
+.add-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.add-btn:hover {
+    background: #1d4ed8;
+}
+
+/* ==========================
+   Table Card
+========================== */
+
+.leave-content {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(15,23,42,.06);
+    border: 1px solid #eef2f7;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:900px){
+
+.leave-header{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.leave-buttons{
+    width:100%;
+}
+
+.calculate-btn,
+.add-btn{
+    flex:1;
+    justify-content:center;
+}
+
+}
+
+@media(max-width:650px){
+
+.leave-page{
+    padding:16px;
+}
+
+.leave-title h1{
+    font-size:23px;
+}
+
+.leave-title-icon{
+    width:52px;
+    height:52px;
+}
+
+.leave-buttons{
+    flex-direction:column;
+    width:100%;
+}
+
+.calculate-btn,
+.add-btn{
+    width:100%;
+}
+
+}

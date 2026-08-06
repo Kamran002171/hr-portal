@@ -1,0 +1,52 @@
+.leave-type{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:13px;
+    font-weight:600;
+
+    white-space:nowrap;
+
+}
+
+/* Əmək */
+
+.type-work{
+
+    background:#DBEAFE;
+    color:#1D4ED8;
+
+}
+
+/* Sosial */
+
+.type-social{
+
+    background:#DCFCE7;
+    color:#15803D;
+
+}
+
+/* Təhsil */
+
+.type-education{
+
+    background:#F3E8FF;
+    color:#7E22CE;
+
+}
+
+/* Ödənişsiz */
+
+.type-unpaid{
+
+    background:#F1F5F9;
+    color:#475569;
+
+}

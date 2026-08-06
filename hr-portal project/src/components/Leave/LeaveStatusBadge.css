@@ -1,0 +1,43 @@
+.leave-status{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:13px;
+    font-weight:600;
+
+    white-space:nowrap;
+
+}
+
+/* Başlayacaq */
+
+.status-pending{
+
+    background:#FEF3C7;
+    color:#B45309;
+
+}
+
+/* Davam edir */
+
+.status-active{
+
+    background:#DCFCE7;
+    color:#15803D;
+
+}
+
+/* Bitdi */
+
+.status-finished{
+
+    background:#FEE2E2;
+    color:#DC2626;
+
+}

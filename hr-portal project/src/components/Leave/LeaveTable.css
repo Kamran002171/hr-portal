@@ -1,0 +1,58 @@
+.leave-table-wrapper{
+    width:100%;
+    overflow-x:auto;
+}
+
+.leave-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:1450px;
+}
+
+.leave-table thead{
+    background:#f8fafc;
+}
+
+.leave-table th{
+    padding:16px 18px;
+    text-align:left;
+
+    font-size:14px;
+    font-weight:700;
+
+    color:#475569;
+
+    border-bottom:1px solid #e2e8f0;
+
+    white-space:nowrap;
+}
+
+.leave-table td{
+    padding:18px;
+    border-bottom:1px solid #f1f5f9;
+    font-size:14px;
+    color:#334155;
+    vertical-align:middle;
+}
+
+.leave-table tbody tr{
+    transition:.2s;
+}
+
+.leave-table tbody tr:hover{
+    background:#f8fbff;
+}
+
+.empty-table{
+
+    height:180px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:16px;
+
+    font-weight:500;
+
+}
