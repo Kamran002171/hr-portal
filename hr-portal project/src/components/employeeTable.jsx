@@ -67,7 +67,7 @@ function EmployeeTable({
               <td>{employee.soyad}</td>
               <td>{employee.vezife}</td>
               <td>{employee.sobe}</td>
-              <td>{employee.maas}</td>
+              <td>{employee.maas ? `${employee.maas} AZN` : "-"}</td>
               <td>{employee.status}</td>
             </tr>
           ))}

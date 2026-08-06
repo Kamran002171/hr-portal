@@ -155,6 +155,8 @@ const [employeeToTerminate, setEmployeeToTerminate] = useState(null);
       soyad: emp.Soyad || emp.SOYAD || "",
 
       ataAdi: emp["Ata adı"] || emp["ATA ADI"] || "",
+      
+      cins: emp.Cins || emp.CİNS || "",
 
       dogumTarixi: formatDate(
         emp["Doğum tarixi"] || emp["DOĞUM TARİXİ"]

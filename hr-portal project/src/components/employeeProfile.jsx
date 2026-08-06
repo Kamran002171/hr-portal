@@ -87,6 +87,12 @@ function EmployeeProfile({
             {formatDate(employee.dogumTarixi)}
           </span>
         </div>
+        <div className="profile-row">
+  <span className="profile-label">Cins</span>
+  <span className="profile-value">
+    {employee.cins || "-"}
+  </span>
+</div>
 
 
         <div className="profile-row">
@@ -129,9 +135,11 @@ function EmployeeProfile({
 
 
         <div className="profile-row">
-          <span className="profile-label">Maaş</span>
-          <span className="profile-value">{employee.maas}</span>
-        </div>
+  <span className="profile-label">Maaş</span>
+  <span className="profile-value">
+    {employee.maas ? `${employee.maas} AZN` : "-"}
+  </span>
+</div>
 
 
         <div className="profile-row">

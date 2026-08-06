@@ -6,6 +6,7 @@ function AddEmployee({ addEmployee, setShowAddForm }) {
     soyad: "",
     ataAdi: "",
     dogumTarixi: "",
+    cins: "",
     vesiqe: "",
     fin: "",
     telefon: "",
@@ -30,6 +31,7 @@ function AddEmployee({ addEmployee, setShowAddForm }) {
       !employee.soyad ||
       !employee.ataAdi ||
       !employee.dogumTarixi ||
+      !employee.cins ||
       !employee.vesiqe ||
       !employee.fin ||
       !employee.telefon ||
@@ -81,6 +83,17 @@ function AddEmployee({ addEmployee, setShowAddForm }) {
         value={employee.dogumTarixi}
         onChange={handleChange}
       />
+
+      <label>Cins</label>
+      <select
+        name="cins"
+        value={employee.cins}
+        onChange={handleChange}
+      >
+        <option value="">Seçin</option>
+        <option value="Kişi">Kişi</option>
+        <option value="Qadın">Qadın</option>
+      </select>
 
       <input
         type="text"

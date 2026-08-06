@@ -1,5 +1,12 @@
 import { useMemo, useState } from "react";
-import { Building2, Users } from "lucide-react";
+
+import {
+  Building2,
+  Users,
+  UserCheck,
+  WalletCards
+} from "lucide-react";
+
 import "./Departments.css";
 
 function formatDate(date) {
@@ -40,6 +47,29 @@ function Departments() {
     "#ca8a04",
     "#0f766e",
   ];
+  const selectedEmployees = employees.filter(
+  (emp) => emp.sobe === selectedDepartment
+);
+
+const totalEmployees = selectedEmployees.length;
+
+const maleEmployees = selectedEmployees.filter(
+  (emp) => emp.cins === "Kişi"
+).length;
+
+const femaleEmployees = selectedEmployees.filter(
+  (emp) => emp.cins === "Qadın"
+).length;
+
+const averageSalary =
+  totalEmployees > 0
+    ? Math.round(
+        selectedEmployees.reduce(
+          (sum, emp) => sum + Number(emp.maas || 0),
+          0
+        ) / totalEmployees
+      )
+    : 0;
 
   return (
     <div className="departments">
@@ -127,63 +157,126 @@ function Departments() {
 
       </div>
 
-      {selectedDepartment && (
-        <>          <div className="department-table">
+     {selectedDepartment && (
+  <div className="department-content">
 
-            <div className="table-header">
-              <h2>{selectedDepartment}</h2>
-            </div>
+    <div className="department-table">
 
-            <table>
+      <div className="table-header">
+        <h2>{selectedDepartment}</h2>
+      </div>
 
-              <thead>
+      <table>
 
-                <tr>
-                  <th>Ad və Soyad</th>
-                  <th>Vəzifə</th>
-                  <th>Maaş (AZN)</th>
-                  <th>İşə qəbul tarixi</th>
-                </tr>
+        <thead>
+          <tr>
+            <th>Ad və Soyad</th>
+            <th>Vəzifə</th>
+            <th>Maaş (AZN)</th>
+            <th>İşə qəbul tarixi</th>
+          </tr>
+        </thead>
 
-              </thead>
+        <tbody>
+          {selectedEmployees.map((emp) => (
+            <tr key={emp.id}>
 
-              <tbody>
+              <td>
+                {emp.ad} {emp.soyad}
+              </td>
 
-                {employees
-                  .filter((emp) => emp.sobe === selectedDepartment)
-                  .map((emp) => (
+              <td>{emp.vezife}</td>
 
-                    <tr key={emp.id}>
+              <td>
+                {emp.maas ? `${emp.maas} AZN` : "-"}
+              </td>
 
-                      <td>
-                        {emp.ad} {emp.soyad}
-                      </td>
+              <td>
+                {formatDate(emp.iseQebul)}
+              </td>
 
-                      <td>{emp.vezife}</td>
+            </tr>
+          ))}
+        </tbody>
 
-                     <td>
-  {emp.maas || "-"}
-</td>
-
-                      <td>
-  {formatDate(emp.iseQebul)}
-</td>
-
-                    </tr>
-
-                  ))}
-
-              </tbody>
-
-            </table>
-
-          </div>
-
-        </>
-      )}
+      </table>
 
     </div>
-  );
+
+   <div className="department-stats">
+
+  <h3>Statistika</h3>
+
+
+  <div className="stat-card">
+
+    <div className="stat-title">
+      <div className="stat-icon blue">
+        <Users size={20} />
+      </div>
+
+      <span>Ümumi işçi sayı</span>
+    </div>
+
+    <strong>{totalEmployees}</strong>
+
+  </div>
+
+
+
+  <div className="stat-card">
+
+    <div className="stat-title">
+      <div className="stat-icon green">
+       <UserCheck size={22} />
+      </div>
+
+      <span>Kişi işçi sayı</span>
+    </div>
+
+    <strong>{maleEmployees}</strong>
+
+  </div>
+
+
+
+  <div className="stat-card">
+
+    <div className="stat-title">
+      <div className="stat-icon pink">
+        <UserCheck size={20} />
+      </div>
+
+      <span>Qadın işçi sayı</span>
+    </div>
+
+    <strong>{femaleEmployees}</strong>
+
+  </div>
+
+
+
+  <div className="stat-card">
+
+    <div className="stat-title">
+      <div className="stat-icon orange">
+        <WalletCards size={20} />
+      </div>
+
+      <span>Orta əmək haqqı</span>
+    </div>
+
+            <strong>{averageSalary} AZN</strong>
+
+      </div>
+
+    </div>
+
+  </div>
+)}
+
+</div>
+);
 }
 
 export default Departments;
